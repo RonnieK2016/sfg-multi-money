@@ -5,4 +5,6 @@ public interface Expression {
     Currency reduce(Bank bank, String to);
 
     Expression plus(Expression addend);
+
+    Expression multiply(int multiplier);
 }
