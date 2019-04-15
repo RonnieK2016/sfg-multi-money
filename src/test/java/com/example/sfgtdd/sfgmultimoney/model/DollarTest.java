@@ -32,11 +32,26 @@ public class DollarTest {
     }
 
     @Test
-    public void testSimpleAddition() {
+    public void testPlusReturnsSum() {
         Currency five = Currency.dollar(5);
-        Expression sum = five.plus(five);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        assertEquals(five, sum.getAugmend());
+        assertEquals(five, sum.getAddmend());
+    }
+
+    @Test
+    public void testReduceSum() {
+        Expression sum = new Sum(Currency.dollar(3), Currency.dollar(4));
         Bank bank = new Bank();
-        Currency reduced = bank.reduce(sum, "USD");
-        assertEquals(Currency.dollar(10), reduced);
+        Currency result = bank.reduce(sum, "USD");
+        assertEquals(Currency.dollar(7), result);
+    }
+
+    @Test
+    public void testReduceMoney() {
+        Bank bank = new Bank();
+        Currency result = bank.reduce(Currency.dollar(1), "USD");
+        assertEquals(Currency.dollar(1), result);
     }
 }

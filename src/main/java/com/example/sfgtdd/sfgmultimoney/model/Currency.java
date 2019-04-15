@@ -30,8 +30,13 @@ public class Currency implements Expression {
         return amount;
     }
 
-    public Expression plus(Currency added) {
-        return new Currency(this.amount + added.getAmount(), this.currencyName);
+    public Expression plus(Currency addend) {
+        return new Sum(this, addend);
+    }
+
+    @Override
+    public Currency reduce(String to){
+        return this;
     }
 
     public boolean equals(Object object) {
