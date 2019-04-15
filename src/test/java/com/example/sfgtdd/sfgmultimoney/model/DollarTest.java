@@ -9,8 +9,10 @@ public class DollarTest {
     @Test
     public void testMultiply() {
         Dollar dollar = new Dollar(5);
-        dollar.multiply(2);
+        Dollar doubleProduct = dollar.multiply(2);
+        assertEquals(10, doubleProduct.getAmount());
 
-        assertEquals(10, dollar.getAmount());
+        Dollar tripleProduct = dollar.multiply(3);
+        assertEquals(15, tripleProduct.getAmount());
     }
 }
