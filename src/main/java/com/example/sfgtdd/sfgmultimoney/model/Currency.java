@@ -1,6 +1,6 @@
 package com.example.sfgtdd.sfgmultimoney.model;
 
-public abstract class Currency {
+public class Currency {
 
     protected int amount;
     private String currencyName;
@@ -18,7 +18,9 @@ public abstract class Currency {
         this.currencyName = currencyName;
     }
 
-    public abstract Currency multiply(int multiplier);
+    public Currency multiply(int multiplier) {
+        return new Currency(this.amount * multiplier, this.currencyName);
+    }
 
     public String getCurrencyName() {
         return currencyName;
@@ -32,7 +34,7 @@ public abstract class Currency {
         if(object == null) {
             return false;
         }
-        return this.getClass().equals(object.getClass()) &&
+        return this.currencyName.equals(((Currency) object).getCurrencyName()) &&
                 this.amount == ((Currency) object).getAmount();
     }
 }
