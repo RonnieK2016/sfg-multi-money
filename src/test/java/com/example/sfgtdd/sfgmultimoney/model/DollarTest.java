@@ -9,23 +9,20 @@ public class DollarTest {
 
     @Test
     public void testMultiply() {
-        Dollar dollar = new Dollar(5);
-        Dollar doubleProduct = dollar.multiply(2);
-        assertEquals(10, doubleProduct.getAmount());
-
-        Dollar tripleProduct = dollar.multiply(3);
-        assertEquals(15, tripleProduct.getAmount());
+        Currency dollar = Currency.dollar(5);
+        assertEquals(10, dollar.multiply(2).getAmount());
+        assertEquals(15, dollar.multiply(3).getAmount());
     }
 
     @Test
     public void testEquals() {
-        assertEquals(new Dollar(5), new Dollar(5));
+        assertEquals(Currency.dollar(5), new Dollar(5));
     }
 
     @Test
     public void testNotEquals() {
-        assertNotEquals(new Dollar(5), new Dollar(10));
-        assertNotEquals(new Dollar(5), null);
-        assertNotEquals(new Dollar(5), new Franc(5));
+        assertNotEquals(Currency.dollar(5), Currency.dollar(10));
+        assertNotEquals(Currency.dollar(5), null);
+        assertNotEquals(Currency.dollar(5), Currency.franc(5));
     }
 }

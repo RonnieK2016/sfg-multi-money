@@ -8,22 +8,19 @@ public class FrancTest {
 
     @Test
     public void multiply() {
-        Franc franc = new Franc(5);
-        Franc doubleProduct = franc.multiply(2);
-        assertEquals(10, doubleProduct.getAmount());
-
-        Franc tripleProduct = franc.multiply(3);
-        assertEquals(15, tripleProduct.getAmount());
+        Currency franc = Currency.franc(5);
+        assertEquals(10, franc.multiply(2).getAmount());
+        assertEquals(15, franc.multiply(3).getAmount());
     }
 
     @Test
     public void getAmount() {
-        Franc franc = new Franc(5);
+        Currency franc = Currency.franc(5);
         assertEquals(5, franc.getAmount());
     }
 
     @Test
     public void equals() {
-        assertEquals(new Franc(5), new Franc(5));
+        assertEquals(Currency.franc(5), new Franc(5));
     }
 }
