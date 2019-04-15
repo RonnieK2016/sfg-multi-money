@@ -10,8 +10,8 @@ public class DollarTest {
     @Test
     public void testMultiply() {
         Currency dollar = Currency.dollar(5);
-        assertEquals(10, dollar.multiply(2).getAmount());
-        assertEquals(15, dollar.multiply(3).getAmount());
+        assertEquals(Currency.dollar(10), dollar.multiply(2));
+        assertEquals(Currency.dollar(15), dollar.multiply(3));
     }
 
     @Test
@@ -67,5 +67,15 @@ public class DollarTest {
     public void testIdentityRate() {
         assertEquals(1, new Bank().rate("USD", "USD"));
         assertEquals(1, new Bank().rate("CHF", "CHF"));
+    }
+
+    @Test
+    public void testMixedAddition() {
+        Expression fiveBucks = Currency.dollar(5);
+        Expression tenFrancs = Currency.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Currency result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
+        assertEquals(Currency.dollar(10), result);
     }
 }

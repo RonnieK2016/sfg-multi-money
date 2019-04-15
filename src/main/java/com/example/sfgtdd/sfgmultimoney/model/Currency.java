@@ -18,7 +18,7 @@ public class Currency implements Expression {
         this.currencyName = currencyName;
     }
 
-    public Currency multiply(int multiplier) {
+    public Expression multiply(int multiplier) {
         return new Currency(this.amount * multiplier, this.currencyName);
     }
 
@@ -30,7 +30,7 @@ public class Currency implements Expression {
         return amount;
     }
 
-    public Expression plus(Currency addend) {
+    public Expression plus(Expression addend) {
         return new Sum(this, addend);
     }
 

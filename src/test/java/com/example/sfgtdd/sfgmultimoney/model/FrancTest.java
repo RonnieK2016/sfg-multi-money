@@ -9,8 +9,8 @@ public class FrancTest {
     @Test
     public void multiply() {
         Currency franc = Currency.franc(5);
-        assertEquals(10, franc.multiply(2).getAmount());
-        assertEquals(15, franc.multiply(3).getAmount());
+        assertEquals(Currency.franc(10), franc.multiply(2));
+        assertEquals(Currency.franc(15), franc.multiply(3));
     }
 
     @Test

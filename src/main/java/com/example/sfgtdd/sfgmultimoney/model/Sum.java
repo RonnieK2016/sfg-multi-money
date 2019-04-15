@@ -2,24 +2,29 @@ package com.example.sfgtdd.sfgmultimoney.model;
 
 public class Sum implements Expression {
 
-    private Currency augmend;
-    private Currency addmend;
+    private Expression augmend;
+    private Expression addmend;
 
-    public Sum(Currency augmend, Currency addmend) {
+    public Sum(Expression augmend, Expression addmend) {
         this.augmend = augmend;
         this.addmend = addmend;
     }
 
     public Currency reduce(Bank bank, String to) {
-        int amount = augmend.amount + addmend.amount;
+        int amount = augmend.reduce(bank, to).getAmount() + addmend.reduce(bank, to).getAmount();
         return new Currency(amount, to);
     }
 
-    public Currency getAugmend() {
+    public Expression getAugmend() {
         return augmend;
     }
 
-    public Currency getAddmend() {
+    public Expression getAddmend() {
         return addmend;
+    }
+
+    @Override
+    public Expression plus(Expression addend) {
+        return null;
     }
 }
