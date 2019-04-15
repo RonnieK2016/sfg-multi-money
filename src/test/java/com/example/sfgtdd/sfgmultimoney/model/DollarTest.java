@@ -30,4 +30,13 @@ public class DollarTest {
     public void testCurrencyName() {
         assertEquals("USD", Currency.dollar(1).getCurrencyName());
     }
+
+    @Test
+    public void testSimpleAddition() {
+        Currency five = Currency.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Currency reduced = bank.reduce(sum, "USD");
+        assertEquals(Currency.dollar(10), reduced);
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.sfgtdd.sfgmultimoney.model;
 
-public class Currency {
+public class Currency implements Expression {
 
     protected int amount;
     private String currencyName;
@@ -28,6 +28,10 @@ public class Currency {
 
     public int getAmount() {
         return amount;
+    }
+
+    public Expression plus(Currency added) {
+        return new Currency(this.amount + added.getAmount(), this.currencyName);
     }
 
     public boolean equals(Object object) {
