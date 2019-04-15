@@ -6,11 +6,11 @@ public class Currency {
     private String currencyName;
 
     public static Currency dollar(int amount) {
-        return new Dollar(amount, "USD");
+        return new Currency(amount, "USD");
     }
 
     public static Currency franc(int amount) {
-        return new Franc(amount, "CHF");
+        return new Currency(amount, "CHF");
     }
 
     public Currency(int amount, String currencyName) {
