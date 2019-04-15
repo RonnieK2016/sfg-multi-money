@@ -16,9 +16,7 @@ public class Currency {
         if(object == null) {
             return false;
         }
-        if(object instanceof Currency) {
-            return this.amount == ((Currency) object).getAmount();
-        }
-        return false;
+        return this.getClass().equals(object.getClass()) &&
+                this.amount == ((Currency) object).getAmount();
     }
 }
