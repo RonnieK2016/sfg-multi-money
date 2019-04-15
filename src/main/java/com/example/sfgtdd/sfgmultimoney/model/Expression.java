@@ -2,5 +2,5 @@ package com.example.sfgtdd.sfgmultimoney.model;
 
 public interface Expression {
 
-    Currency reduce(String to);
+    Currency reduce(Bank bank, String to);
 }

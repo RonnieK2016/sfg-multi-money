@@ -35,9 +35,9 @@ public class Currency implements Expression {
     }
 
     @Override
-    public Currency reduce(String to){
-        return this;
-    }
+    public Currency reduce(Bank bank, String to){
+        return new Currency(amount / bank.rate(this.getCurrencyName(), to), to);
+}
 
     public boolean equals(Object object) {
         if(object == null) {
