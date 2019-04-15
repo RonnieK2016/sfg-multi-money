@@ -2,12 +2,12 @@ package com.example.sfgtdd.sfgmultimoney.model;
 
 public class Franc extends Currency {
 
-    public Franc(int amount) {
-        super(amount);
+    public Franc(int amount, String currencyName) {
+        super(amount, currencyName);
     }
 
-    public Franc multiply(int multiplier) {
-        return new Franc(this.amount * multiplier);
+    public Currency multiply(int multiplier) {
+        return Currency.franc(amount * multiplier);
     }
     
 }

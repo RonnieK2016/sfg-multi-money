@@ -21,6 +21,11 @@ public class FrancTest {
 
     @Test
     public void equals() {
-        assertEquals(Currency.franc(5), new Franc(5));
+        assertEquals(Currency.franc(5), Currency.franc(5));
+    }
+
+    @Test
+    public void testCurrencyName() {
+        assertEquals("CHF", Currency.franc(1).getCurrencyName());
     }
 }
