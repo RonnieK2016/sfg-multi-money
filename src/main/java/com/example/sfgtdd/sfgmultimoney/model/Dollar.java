@@ -1,5 +1,7 @@
 package com.example.sfgtdd.sfgmultimoney.model;
 
+import java.util.Objects;
+
 public class Dollar {
 
     private int amount;
@@ -14,5 +16,15 @@ public class Dollar {
 
     public int getAmount() {
         return amount;
+    }
+
+    public boolean equals(Object object) {
+        if(object == null) {
+            return false;
+        }
+        if(object instanceof Dollar) {
+            return this.amount == ((Dollar) object).getAmount();
+        }
+        return false;
     }
 }
