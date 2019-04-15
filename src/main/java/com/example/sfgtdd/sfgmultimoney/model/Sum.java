@@ -2,8 +2,8 @@ package com.example.sfgtdd.sfgmultimoney.model;
 
 public class Sum implements Expression {
 
-    private Expression augmend;
-    private Expression addmend;
+    final private Expression augmend;
+    final private Expression addmend;
 
     public Sum(Expression augmend, Expression addmend) {
         this.augmend = augmend;

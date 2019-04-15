@@ -2,8 +2,8 @@ package com.example.sfgtdd.sfgmultimoney.model;
 
 public class Currency implements Expression {
 
-    protected int amount;
-    private String currencyName;
+    final private int amount;
+    final private String currencyName;
 
     public static Currency dollar(int amount) {
         return new Currency(amount, "USD");
@@ -43,6 +43,11 @@ public class Currency implements Expression {
         if(object == null) {
             return false;
         }
+
+        if(!(object instanceof  Currency)) {
+            return false;
+        }
+
         return this.currencyName.equals(((Currency) object).getCurrencyName()) &&
                 this.amount == ((Currency) object).getAmount();
     }
